@@ -9,5 +9,8 @@
   "hubot-redis-brain",
   "hubot-rules",
   "hubot-shipit",
-  "hubot-youtube"
+  "hubot-youtube",
+  "hubot-victory",
+  "hubot-thank-you",
+  "hubot-calculator"
 ]
