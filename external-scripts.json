@@ -17,5 +17,6 @@
   "hubot-9gag",
   "hubot-trollbot",
   "hubot-fliptable",
-  "hubot-ambush"
+  "hubot-ambush",
+  "hubot-qr-generator"
 ]
