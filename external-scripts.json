@@ -20,5 +20,6 @@
   "hubot-ambush",
   "hubot-qr-generator",
   "hubot-seen",
-  "hubot-tictactoe"
+  "hubot-tictactoe",
+  "hubot-hashme"
 ]
