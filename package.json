@@ -11,6 +11,7 @@
     "hubot-calculator": "^0.4.0",
     "hubot-darts": "^1.0.1",
     "hubot-diagnostics": "0.0.1",
+    "hubot-fliptable": "^1.2.0",
     "hubot-google-images": "^0.1.4",
     "hubot-google-translate": "^0.1.0",
     "hubot-help": "^0.1.1",
