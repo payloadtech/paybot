@@ -32,5 +32,5 @@ module.exports = (robot) ->
       msg.send "Balance: #{body.balance/100000000}|#{(body.balance + body.unconfirmed_balance)/100000000} BTC\n"
       msg.send "Recieved: #{body.received/10000000}|#{(body.received + body.unconfirmed_received)/100000000} BTC\n"
       msg.send "Sent: #{body.sent/100000000}|#{(body.sent + body.unconfirmed_sent)/100000000} BTC\n"
-      msg.send "Check it out at https: //bitcoin.toshi.io/api/v0/addresses/#{address}"
+      msg.send "Check it out at https://bitcoin.toshi.io/api/v0/addresses/#{address}"
       return
