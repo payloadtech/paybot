@@ -19,5 +19,6 @@
   "hubot-fliptable",
   "hubot-ambush",
   "hubot-qr-generator",
-  "hubot-seen"
+  "hubot-seen",
+  "hubot-tictactoe"
 ]
