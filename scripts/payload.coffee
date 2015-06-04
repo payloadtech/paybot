@@ -19,7 +19,7 @@ module.exports = (robot) ->
     console.log req.body
 
     room = "#general"
-    data = if req.body.payload? then JSON.parse req.body.payload else req.body
+    data = JSON.parse(req.body).payload
     token = req.query.token
 
     jwt.verify token, secret, (err, decoded) ->
