@@ -33,7 +33,8 @@
     "hubot-tictactoe": "^0.1.0",
     "hubot-trollbot": "^0.1.1",
     "hubot-victory": "^1.3.0",
-    "hubot-youtube": "^0.1.2"
+    "hubot-youtube": "^0.1.2",
+    "jsonwebtoken": "^5.0.1"
   },
   "engines": {
     "node": "0.10.x"
