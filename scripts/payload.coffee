@@ -16,6 +16,8 @@ secret = process.env.WEBHOOK_SECRET
 module.exports = (robot) ->
   robot.router.post '/payload/tx', (req, res) ->
 
+    console.log req.body
+
     room = "#general"
     data = if req.body.payload? then JSON.parse req.body.payload else req.body
     token = req.query.token
@@ -28,8 +30,8 @@ module.exports = (robot) ->
         return
 
       if decoded
-        robot.messageRoom room, "Transaction: Recieved #{payload.amount} BTC for
-        client #{payload.client} at #{payload.address}"
+        robot.messageRoom room, "Transaction: Recieved #{data.amount} BTC for
+        client #{data.client} at #{data.address}"
         res.send 'Done.'
         return
 
