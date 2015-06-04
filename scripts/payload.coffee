@@ -23,10 +23,10 @@ module.exports = (robot) ->
     jwt.verify token, secret, (err, decoded) ->
       if err
         robot.messageRoom room, "LOL: Some idiot tried forging a transaction" +
-        "via a webhook. The request IP was #{req.ip}"
+        " via a webhook. The request IP was #{req.ip}"
         res.send 'LOL! Idiot. These webhooks are secure.'
 
       if decoded
         robot.messageRoom room, "Transaction: Recieved #{data.amount} BTC for" +
-        "client #{data.client} at #{data.address}"
+        " client #{data.client} at #{data.address}"
         res.send 'Done.'
