@@ -19,11 +19,12 @@ module.exports = (robot) ->
     room = "#general"
     data = req.body
     token = req.query.token
+    ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
 
     jwt.verify token, secret, (err, decoded) ->
       if err
         robot.messageRoom room, "LOL: Some idiot tried forging a transaction" +
-        " via a webhook. The request IP was #{req.ip}"
+        " via a webhook. The request IP was #{ip}"
         res.send 'LOL! Idiot. These webhooks are secure.'
 
       if decoded
