@@ -16,10 +16,12 @@ secret = process.env.WEBHOOK_SECRET
 module.exports = (robot) ->
   robot.router.post '/payload/tx', (req, res) ->
 
+    console.log typeof req.body
     console.log req.body
 
     room = "#general"
-    data = JSON.parse(req.body).payload
+    data = JSON.parse(req.body)
+    console.log typeof data
     token = req.query.token
 
     jwt.verify token, secret, (err, decoded) ->
