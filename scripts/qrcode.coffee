@@ -17,7 +17,7 @@ module.exports = (robot) ->
     "ERRAWR, ERRAWR, forgot DATAWR."
     ]
 
-  robot.respond /qr\s(.*)/i, (res) ->
+  robot.respond /qr(\s(.*)|.*?)/i, (res) ->
     data = encodeURIComponent res.match[1]
     if !data
       res.reply res.random fool
