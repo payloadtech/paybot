@@ -27,7 +27,7 @@ module.exports = (robot) ->
 
   robot.error (err, res) ->
 
-    robot.logger.error "DOES NOT COMPUTE"
+    robot.logger.error "DOES NOT COMPUTE: #{err}"
 
     if res?
-      res.reply "DOES NOT COMPUTE"
+      res.reply "DOES NOT COMPUTE: #{err}"
