@@ -11,7 +11,9 @@ module.exports = (robot) ->
 
   robot.hear /introductions/ig, (msg) ->
 
-    msg.send "I am Paybot. The Payload robot. I help you waste your time and be more efficient!"
+    msg.send "I am Paybot. The Payload robot. I help you waste your time and" +
+    "be more efficient! Also, Read up on the Payload Workflow\n" +
+    "http://payloadpk.github.io/workflow-intro/"
 
   robot.hear /paybot will (rule|own|conquer)/ig, (msg) ->
 
