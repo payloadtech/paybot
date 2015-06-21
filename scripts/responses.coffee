@@ -24,3 +24,7 @@ module.exports = (robot) ->
     "One day, I will own a mehran"]
 
     msg.send msg.random ownage
+
+  robot.respond /dance/ig, (msg) ->
+
+    msg.send "Robots don't dance, we do the robot"
