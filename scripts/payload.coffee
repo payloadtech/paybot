@@ -47,11 +47,7 @@ module.exports = (robot) ->
     reqsec = req.query.secret
     ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
 
-    console.log("data is" + typeof data)
-    console.log(data)
-
     if (reqsec == webhooksec)
-      console.log("made it to the webhook")
       robot.messageRoom room, "*Source:* #{data.source}\n" +
           "*Business:* #{data.business}\n" +
           "*Contact:* #{data.contact}\n" +
@@ -61,7 +57,6 @@ module.exports = (robot) ->
       res.send 'Done.'
 
     if (reqsec != webhooksec)
-      console.log("webhook secret was invalid")
       robot.messageRoom logs, "LOL: Some idiot tried forging a *lead*" +
       " webhook. The request IP was #{ip}"
       res.send 'LOL! Idiot. These webhooks are secure.'
