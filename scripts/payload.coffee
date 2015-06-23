@@ -43,7 +43,7 @@ module.exports = (robot) ->
   robot.router.post '/leads/notify', (req, res) ->
 
     room = "#leads"
-    data = req.body.payload
+    data = req.body
     reqsec = req.query.secret
     ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
 
