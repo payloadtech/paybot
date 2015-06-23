@@ -48,14 +48,12 @@ module.exports = (robot) ->
     ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
 
     if (reqsec == webhooksec)
-
-      if decoded
-        robot.messageRoom room, "*Source:* #{data.source}\n" +
-            "*Business:* #{data.business}\n" +
-            "*Contact:* #{data.contact}\n" +
-            "*Email:* #{data.email}\n" +
-            "*Referral:* #{data.ref}\n\n" +
-            "*Description:*\n #{data.description}"
+      robot.messageRoom room, "*Source:* #{data.source}\n" +
+          "*Business:* #{data.business}\n" +
+          "*Contact:* #{data.contact}\n" +
+          "*Email:* #{data.email}\n" +
+          "*Referral:* #{data.ref}\n\n" +
+          "*Description:*\n #{data.description}"
 
       if (reqsec != webhooksec)
         robot.messageRoom logs, "LOL: Some idiot tried forging a *lead*" +
