@@ -53,6 +53,7 @@ module.exports = (robot) ->
           "*Contact:* #{data.contact}\n" +
           "*Email:* #{data.email}\n" +
           "*Referral:* #{data.ref}\n\n" +
+          "*Estimated PKR:* #{data.estimate}\n\n" +
           "*Description:*\n #{data.description}"
       res.send 'Done.'
 
