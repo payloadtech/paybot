@@ -52,9 +52,9 @@ module.exports = (robot) ->
           "*Business:* #{data.business}\n" +
           "*Contact:* #{data.contact}\n" +
           "*Email:* #{data.email}\n" +
-          "*Referral:* #{data.ref}\n\n" +
+          "*Referral:* #{data.ref}\n" +
           "*Estimated PKR:* #{data.estimate}\n\n" +
-          "*Description:*\n #{data.description}"
+          "*Description:*\n#{data.description}"
       res.send 'Done.'
 
     if (reqsec != webhooksec)
