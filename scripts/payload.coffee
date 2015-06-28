@@ -76,9 +76,12 @@ module.exports = (robot) ->
     .update(JSON.stringify(payload))
     .digest('hex')
     if hookHash == signature
-
       robot.emit "gh_#{event}", req.body
       res.end "ok"
+    else
+      robot.messageRoom logs, "LOL: Some idiot tried forging a *Github*" +
+      " webhook. The request IP was #{ip}"
+      res.send 'LOL! Idiot. These webhooks are secure.'
 
   robot.on "gh_pull_request", (data) ->
     robot.messageRoom logs, "#{data.action}: " +
