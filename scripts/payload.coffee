@@ -81,11 +81,11 @@ module.exports = (robot) ->
       res.end "ok"
 
   robot.on "gh_pull_request", (data) ->
-    robot.messageRoom "paybot-testing", "#{data.action}: " +
+    robot.messageRoom logs, "#{data.action}: " +
     "#{data.pull_request.title}"
 
   robot.on "gh_push", (data) ->
-    robot.messageRoom "paybot-testing", "new commits in " +
+    robot.messageRoom logs, "new commits in " +
     "#{data.repository.full_name} #{data.ref}\n" +
     "HEAD is now at #{data.head_commit.id.substring(0,8)} " +
     "by #{data.head_commit.author.name} <#{data.head_commit.author.email}>"
