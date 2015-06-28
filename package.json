@@ -5,6 +5,7 @@
   "author": "Amin Shah Gilani <aminshahgilani@gmail.com>",
   "description": "The Payload housekeeping robot.",
   "dependencies": {
+    "buffer-equal-constant-time": "^1.0.1",
     "calculator": "^0.1.12",
     "hubot": "^2.12.0",
     "hubot-9gag": "^0.2.0",

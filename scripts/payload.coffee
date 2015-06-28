@@ -21,6 +21,7 @@ jwtSecret = process.env.WEBHOOK_SECRET_JWT
 webhookSec = process.env.WEBHOOK_SECRET_STATIC
 githubSec = process.env.GITHUB_WEBHOOK_SECRET
 crypto = require 'crypto'
+bufferEq = require 'buffer-equal-constant-time'
 
 # Paybot tells us when a new transaction happens
 module.exports = (robot) ->
@@ -75,7 +76,7 @@ module.exports = (robot) ->
     hookHash = "sha1=" + crypto.createHmac('sha1', githubSec)
     .update(JSON.stringify(payload))
     .digest('hex')
-    if hookHash == signature
+    if bufferEq (new Buffer hookHash), (new Buffer signature)
       robot.emit "gh_#{event}", req.body
       res.end "ok"
     else
