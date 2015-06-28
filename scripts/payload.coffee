@@ -99,7 +99,7 @@ module.exports = (robot) ->
   robot.on "gh_push", (data) ->
     message = ":pencil2: *New commits* in " +
     "#{data.repository.full_name} #{data.ref}\n" +
-    "HEAD changes: #{data.before.substring(0,8)}..." +
+    "HEAD changes: *#{data.before.substring(0,8)}..." +
     "#{data.after.substring(0,8)}* by " +
     "*#{data.head_commit.author.name}* <#{data.head_commit.author.email}>\n" +
     "_#{data.head_commit.message}_\n" +
