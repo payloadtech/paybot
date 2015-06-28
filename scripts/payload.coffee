@@ -76,12 +76,16 @@ module.exports = (robot) ->
     .update(JSON.stringify(payload))
     .digest('hex')
     if hookHash == signature
-      
+
       robot.emit "gh_#{event}", req.body
       res.end "ok"
 
   robot.on "gh_pull_request", (data) ->
-    robot.messageRoom "paybot-testing", "#{data.action}: #{data.pull_request.title}"
+    robot.messageRoom "paybot-testing", "#{data.action}: " +
+    "#{data.pull_request.title}"
 
   robot.on "gh_push", (data) ->
-    robot.messageRoom "paybot-testing", "new commits in #{data.repository.full_name} #{data.ref}"
+    robot.messageRoom "paybot-testing", "new commits in " +
+    "#{data.repository.full_name} #{data.ref}\n" +
+    "HEAD is now at #{data.head_commit.id.substring(0,8)} " +
+    "by #{data.head_commit.author.name} <#{data.head_commit.author.email}>"
