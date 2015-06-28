@@ -97,7 +97,7 @@ module.exports = (robot) ->
     "#{data.pull_request.title}"
 
   robot.on "gh_push", (data) ->
-    robot.messageRoom logs, "New commits in " +
+    robot.messageRoom logs, ":pencil2: *New commits* in " +
     "#{data.repository.full_name} #{data.ref}\n" +
     "HEAD is now at #{data.head_commit.id.substring(0,8)} " +
     "by #{data.head_commit.author.name} <#{data.head_commit.author.email}>\n" +
