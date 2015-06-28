@@ -99,8 +99,8 @@ module.exports = (robot) ->
   robot.on "gh_push", (data) ->
     robot.messageRoom logs, ":pencil2: *New commits* in " +
     "#{data.repository.full_name} #{data.ref}\n" +
-    "HEAD is now at #{data.head_commit.id.substring(0,8)} " +
-    "by #{data.head_commit.author.name} <#{data.head_commit.author.email}>\n" +
+    "HEAD is now at *#{data.head_commit.id.substring(0,8)}* " +
+    "by *#{data.head_commit.author.name}* <#{data.head_commit.author.email}>\n" +
     "_#{data.head_commit.message}_"
 
   robot.on "gh_deployment_status", (data) ->
