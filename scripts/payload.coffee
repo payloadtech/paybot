@@ -102,3 +102,14 @@ module.exports = (robot) ->
     "HEAD is now at #{data.head_commit.id.substring(0,8)} " +
     "by #{data.head_commit.author.name} <#{data.head_commit.author.email}>\n" +
     "_#{data.head_commit.message}_"
+
+  robot.on "gh_pull_deployment_status", (data) ->
+    if data.deployment_status.state == "pending"
+      robot.messageRoom logs, ":sparkles: *Deploying:* " +
+      "#{data.repository.full_name} at " +
+      "#{data.deployment.sha.substring(0,8)}"
+
+    if data.deployment_status.state == "success"
+      robot.messageRoom logs, ":star2: *Deployed:* " +
+      "#{data.repository.full_name} at " +
+      "#{data.deployment.sha.substring(0,8)}"
