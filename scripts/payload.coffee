@@ -13,10 +13,14 @@
 # Author:
 #   amingilani
 #
+
+# all the initial settings
 logs = '#logs'
 jwt = require 'jsonwebtoken'
 jwtSecret = process.env.WEBHOOK_SECRET_JWT
-webhooksec = process.env.WEBHOOK_SECRET_STATIC
+webhookSec = process.env.WEBHOOK_SECRET_STATIC
+githubSec = process.env.GITHUB_WEBHOOK_SECRET
+crypto = require 'crypto'
 
 # Paybot tells us when a new transaction happens
 module.exports = (robot) ->
@@ -61,3 +65,23 @@ module.exports = (robot) ->
       robot.messageRoom logs, "LOL: Some idiot tried forging a *lead*" +
       " webhook. The request IP was #{ip}"
       res.send 'LOL! Idiot. These webhooks are secure.'
+
+# Github webhooks
+  robot.router.post "/github-in", (req, res) ->
+    robot.logger.debug req
+    event = req.get('X-Github-Event')
+    signature = req.get('X-Hub-Signature')
+    payload = req.body
+    hookHash = crypto.createHmac 'sha1', githubSec
+    .update(payload)
+    .digest('hex')
+
+    if hookHash == signature
+      robot.emit "gh_#{event}", req.body
+      res.end "ok"
+
+  robot.on "gh_pull_request", (data) ->
+    robot.messageRoom "paybot-testing", "#{data.action}: #{data.pull_request.title}"
+
+  robot.on "gh_push", (data) ->
+    robot.messageRoom "paybot-testing", "new commits in #{data.repository.full_name} #{data.ref}"
