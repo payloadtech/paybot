@@ -25,6 +25,26 @@ module.exports = (robot) ->
       "Check it out and follow what he says.\n" +
       "If you ever need me again, just say _paybot help_"
 
+  robot.hear /introductions/ig, (msg) ->
+    msg.send "Everyone already knows me, I'll just stay quiet."
+
+  robot.hear /(thank.*.bot|thank.*.duck|thanks)/gi, (msg) ->
+    thanksResponse = [
+      "you're welcome",
+      "no problem",
+      "not a problem",
+      "no problem at all",
+      "don’t mention it",
+      "it’s no bother",
+      "it’s my pleasure",
+      "my pleasure",
+      "it’s nothing",
+      "think nothing of it",
+      "no, no. thank you!",
+      "sure thing"
+      ]
+    msg.send msg.random thanksResponse
+
   robot.hear /paybot will (rule|own|conquer)/ig, (msg) ->
     ownage = ["One day, I will own the world",
     "One day, I will own the galaxy",
