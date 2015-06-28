@@ -105,7 +105,7 @@ module.exports = (robot) ->
 
   robot.on "gh_deployment_status", (data) ->
     if data.deployment_status.state == "pending"
-      robot.messageRoom logs, ":sparkles: *Deploying:* " +
+      robot.messageRoom logs, ":dart: *Deploying:* " +
       "#{data.repository.full_name} at " +
       "#{data.deployment.sha.substring(0,8)}"
 
