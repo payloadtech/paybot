@@ -20,9 +20,9 @@ module.exports = (robot) ->
       "Someone will be along shortly to introduce you to the team, until then" +
       " read up on the Payload workflow:\n" +
       "http://blog.payload.pk/workflow/\n" +
-      "PS: the retard under me is slackbot. He's a little slow, " +
-      "but he's a nice guy too. He's probably sent you a dm (direct message)." +
-      " Check it out and follow what he says.\n" +
+      "PS: The other robot here is @slackbot. He's a little slow, " +
+      "but he's a nice guy. He's probably sent you a dm (direct message). " +
+      "Check it out and follow what he says.\n" +
       "If you ever need me again, just say _paybot help_"
 
   robot.hear /paybot will (rule|own|conquer)/ig, (msg) ->
