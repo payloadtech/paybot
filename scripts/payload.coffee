@@ -72,11 +72,16 @@ module.exports = (robot) ->
   robot.router.post "/github-in", (req, res) ->
     robot.logger.debug req
     ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
+    # end if secret is not set
+    if !process.env.GITHUB_WEBHOOK_SECRET
+      messageRoom "rabbit-testing", "Please set GITHUB_WEBHOOK_SECRET for me" +
+      "to secure webhooks"
+      return res.end "ok"
+
     event = req.get('X-Github-Event')
     signature = req.get('X-Hub-Signature')
     payload = req.body
     hookHash = "sha1=" + crypto.createHmac('sha1', githubSec)
-
     .update(JSON.stringify(payload))
     .digest('hex')
     if bufferEq (new Buffer hookHash), (new Buffer signature)
