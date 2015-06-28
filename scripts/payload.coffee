@@ -107,9 +107,9 @@ module.exports = (robot) ->
     if data.deployment_status.state == "pending"
       robot.messageRoom logs, ":dart: *Deploying:* " +
       "#{data.repository.full_name} at " +
-      "#{data.deployment.sha.substring(0,8)}"
+      "*#{data.deployment.sha.substring(0,8)}*"
 
     if data.deployment_status.state == "success"
       robot.messageRoom logs, ":star2: *Deployed:* " +
       "#{data.repository.full_name} at " +
-      "#{data.deployment.sha.substring(0,8)}"
+      "*#{data.deployment.sha.substring(0,8)}*"
