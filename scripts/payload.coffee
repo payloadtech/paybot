@@ -99,9 +99,11 @@ module.exports = (robot) ->
   robot.on "gh_push", (data) ->
     robot.messageRoom logs, ":pencil2: *New commits* in " +
     "#{data.repository.full_name} #{data.ref}\n" +
-    "HEAD is now at *#{data.head_commit.id.substring(0,8)}* " +
-    "by *#{data.head_commit.author.name}* <#{data.head_commit.author.email}>\n" +
-    "_#{data.head_commit.message}_"
+    "HEAD changes: #{data.before.substring(0,8)}..." +
+    "#{data.after.substring(0,8)}* by " +
+    "*#{data.head_commit.author.name}* <#{data.head_commit.author.email}>\n" +
+    "_#{data.head_commit.message}_\n" +
+    "View changes: #{data.compare}"
 
   robot.on "gh_deployment_status", (data) ->
     if data.deployment_status.state == "pending"
