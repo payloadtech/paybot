@@ -72,9 +72,12 @@ module.exports = (robot) ->
     event = req.get('X-Github-Event')
     signature = req.get('X-Hub-Signature')
     payload = req.body
-    hookHash = crypto.createHmac 'sha1', githubSec
+    hookHash = crypto.createHmac('sha1', githubSec)
     .update(payload)
     .digest('hex')
+
+    robot.logger.debug signature
+    robot.logger.debug hookHash
 
     if hookHash == signature
       robot.emit "gh_#{event}", req.body
