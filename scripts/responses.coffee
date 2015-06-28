@@ -31,7 +31,7 @@ module.exports = (robot) ->
     msg.send "Everyone already knows me, I'll just stay quiet."
 
 # thanking paybot
-  robot.hear /(thank.*.bot|thank.*.duck|thanks)/gi, (msg) ->
+  robot.hear /(thank.*.bot|thank.*.duck|paybot thank.*)/gi, (msg) ->
     thanksResponse = [
       "you're welcome",
       "no problem",
