@@ -9,6 +9,7 @@
 
 module.exports = (robot) ->
 
+# paybot welcomes new people
   robot.enter (msg) ->
     @robot.logger.debug "#{msg.message.room}" +
     " was joined by #{msg.message.user.name}"
@@ -25,9 +26,11 @@ module.exports = (robot) ->
       "Check it out and follow what he says.\n" +
       "If you ever need me again, just say _paybot help_"
 
+# paybot already has introduced himself
   robot.hear /introductions/ig, (msg) ->
     msg.send "Everyone already knows me, I'll just stay quiet."
 
+# thanking paybot
   robot.hear /(thank.*.bot|thank.*.duck|thanks)/gi, (msg) ->
     thanksResponse = [
       "you're welcome",
@@ -45,6 +48,7 @@ module.exports = (robot) ->
       ]
     msg.send msg.random thanksResponse
 
+# will paybot rule the world
   robot.hear /paybot will (rule|own|conquer)/ig, (msg) ->
     ownage = ["One day, I will own the world",
     "One day, I will own the galaxy",
@@ -53,5 +57,15 @@ module.exports = (robot) ->
     "One day, I will own a mehran"]
     msg.send msg.random ownage
 
+# paybot does the robot dance
   robot.respond /dance/ig, (msg) ->
     msg.send "Robots don't dance, we do the robot"
+
+  robot.hear /roflcopter/ig, (msg) ->
+    roflcopters = [
+      "http://i21.photobucket.com/albums/b259/meatrocket/General/roflcopter.gif",
+      "http://www.marcymarc.pwp.blueyonder.co.uk/images/roflcopter.gif ",
+      "http://i240.photobucket.com/albums/ff137/craptastic13/ROFLcopter.gif",
+      "http://plo.fobby.net/cpp/rcp.gif",
+      ]
+    msg.send msg.random roflcopters
