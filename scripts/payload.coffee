@@ -92,4 +92,5 @@ module.exports = (robot) ->
     robot.messageRoom logs, "new commits in " +
     "#{data.repository.full_name} #{data.ref}\n" +
     "HEAD is now at #{data.head_commit.id.substring(0,8)} " +
-    "by #{data.head_commit.author.name} <#{data.head_commit.author.email}>"
+    "by #{data.head_commit.author.name} <#{data.head_commit.author.email}>\n" +
+    "_#{data.head_commit.message}_"
