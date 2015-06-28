@@ -61,6 +61,7 @@ module.exports = (robot) ->
   robot.respond /dance/ig, (msg) ->
     msg.send "Robots don't dance, we do the robot"
 
+# paybot does the roflcopter for you
   robot.hear /roflcopter/ig, (msg) ->
     roflcopters = [
       "http://i21.photobucket.com/albums/b259/meatrocket/General/roflcopter.gif",
@@ -69,3 +70,12 @@ module.exports = (robot) ->
       "http://plo.fobby.net/cpp/rcp.gif",
       ]
     msg.send msg.random roflcopters
+
+# paybot loves you back
+  robot.hear /(i love you paybot|ily paybot|paybot i love you)/ig, (msg) ->
+    paybotLove = [
+      "I love you too",
+      "i love you more",
+      "not as much as I love you"
+      ]
+    msg.reply msg.random paybotLove
