@@ -79,3 +79,7 @@ module.exports = (robot) ->
       "not as much as I love you"
       ]
     msg.reply msg.random paybotLove
+
+# paybot loves chicken
+  robot.hear /(chicken piece)/ig, (msg) ->
+    msg.reply ":chicken:"
