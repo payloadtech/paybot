@@ -82,4 +82,4 @@ module.exports = (robot) ->
 
 # paybot loves chicken
   robot.hear /(chicken piece)/ig, (msg) ->
-    msg.reply ":chicken:"
+    msg.send ":chicken: :chicken:"
