@@ -15,7 +15,7 @@ module.exports = (robot) ->
     " was joined by #{msg.message.user.name}"
     newKid = msg.message.user.name
     if msg.message.room == "general" || msg.message.room == "paybot-testing"
-      msg.reply "Hello! I am Paybot. The Payload robot." +
+      msg.reply "Hello! I am Paybot. The Payload robot. " +
       "I help you waste your time *and* be more efficient!\n" +
       "Welcome to our Slack channel, it's kinda like our virtual office. " +
       "Someone will be along shortly to introduce you to the team, until then" +
