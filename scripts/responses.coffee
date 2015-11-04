@@ -72,7 +72,7 @@ module.exports = (robot) ->
     msg.send msg.random roflcopters
 
 # paybot loves you back
-  robot.hear /(i love you paybot|ily paybot|paybot i love you)/ig, (msg) ->
+  robot.hear /(i love you paybot|paybot ily|ily paybot|paybot i love you)/ig, (msg) ->
     paybotLove = [
       "I love you too",
       "i love you more",
