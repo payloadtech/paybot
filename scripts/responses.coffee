@@ -13,15 +13,12 @@ module.exports = (robot) ->
   robot.enter (msg) ->
 
     helloMsg = [
-      "Hello! I am Paybot. The Payload robot.",
-      "I help you waste your time *and* be more efficient!\n",
-      "Welcome to our Slack channel, it's kinda like our virtual office.",
-      "Someone will be along shortly to introduce you to the team, until then",
-      "read up on the Payload workflow:",
+      "Hello! I am Paybot.",
+      "Welcome to our Slack channel."
+      "Please fill out the following form **immediately**:",
+      "\nhttp://goo.gl/forms/FAASZkx4st",
+      "\nSecond, read up on the tools we use for our workflow:",
       "\nhttp://blog.payload.pk/workflow/",
-      "\nPS: The other robot here is @slackbot. He's a little slow,",
-      "but he's a nice guy. He's probably sent you a dm (direct message).",
-      "Check it out and follow what he says.",
       "\nIf you ever need me again, just say _paybot help_"
     ]
 
