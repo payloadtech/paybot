@@ -14,8 +14,8 @@ module.exports = (robot) ->
 
     helloMsg = [
       "Hello! I am Paybot.",
-      "Welcome to our Slack channel."
-      "Please fill out the following form **immediately**:",
+      "Welcome to our Slack channel.",
+      "Please fill out the following form:",
       "\nhttp://goo.gl/forms/FAASZkx4st",
       "\nSecond, read up on the tools we use for our workflow:",
       "\nhttp://blog.payload.pk/workflow/",
