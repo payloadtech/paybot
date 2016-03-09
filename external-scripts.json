@@ -21,5 +21,6 @@
   "hubot-tictactoe",
   "hubot-hashme",
   "hubot-ikr",
-  "hubot-google-hangouts"
+  "hubot-google-hangouts",
+  "hubot-redis-brain"
 ]
